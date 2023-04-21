@@ -43,7 +43,7 @@ services:
     # version確認
     image: mysql:8
     volumes:
-      # project名によって変更
+      # fixme: project名によって変更
       - docker-laravel-env-db-store:/var/lib/mysql
       - ./logs:/var/log/mysql
       - ./docker/mysql/my.conf:/etc/mysql/conf.d/my.cnf
@@ -57,5 +57,5 @@ services:
     user: 1000:1000
   
 volumes:
-  # project名によって変更
+  # fixme: project名によって変更
   docker-laravel-env-db-store:

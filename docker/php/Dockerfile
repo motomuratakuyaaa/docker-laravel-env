@@ -1,6 +1,5 @@
 # 最新バージョン確認
 FROM php:8.2.5-fpm-alpine
-#FROM php:7.3-fpm-alpine
 LABEL maintainer="higuchi"
 
 # tinker(psysh)
@@ -24,7 +23,9 @@ RUN set -eux && \
     tzdata \
     git \
     linux-headers \
-    oniguruma-dev && \
+    oniguruma-dev \
+    nodejs \
+    npm && \
   apk add --update --no-cache \
     icu-dev \
     bash \
