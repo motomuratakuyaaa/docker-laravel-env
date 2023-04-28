@@ -24,6 +24,8 @@
     - cd project
     - sudo chown -R hoge:hoge .
         - ※wslのユーザーでOK
+1. app/storage 配下の権限変更
+    - chmod -R 777 app/storage
 
 # ログイン機能付与手順
 1. Breezeをインストール
