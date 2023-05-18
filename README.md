@@ -17,14 +17,16 @@
     - docker-compose up -d --build
 1. appコンテナにはいる
     - docker-compose exec app bash
-1. cd project
+1. /work にいることを確認
 1. composer create-project --prefer-dist laravel/laravel {プロジェクト名:myapp}
     - myappにしない場合は、各所を修正
 1. https://localhost:8000 でLaravel初期画面が表示されればOK
 1. project配下の所有者を変更（ファイル変更権限がない場合）
-    - cd project
+    - コンテナに入っている場合は、exitで抜け、wsl上に戻る。
+    - cd project/myapp
     - sudo chown -R hoge:hoge .
         - ※wslのユーザーでOK
+        - グループの確認コマンド「groups hoge」
 1. app/storage 配下の権限変更
     - chmod -R 777 app/storage
 
