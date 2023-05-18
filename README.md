@@ -10,6 +10,7 @@
 1. 「.git」フォルダを削除
 1. gitを初期化して、コミット、プッシュする
 1. 「fixme」で検索して、プロジェクト毎に適宜修正
+1. .env.devをコピーして、.envを作成する
 1. SSL関連ファイル生成
     - http://friendspring.starfree.jp/https/
 1. Docker起動
