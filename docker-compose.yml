@@ -12,6 +12,7 @@ services:
     volumes:
       - ${PROJECT_PATH}:/work
       - ./logs:/var/log
+      - ./logs:/work/myapp/storage/logs
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini
     working_dir: /work
     environment:
@@ -29,6 +30,7 @@ services:
       - app
     ports:
       - ${WEB_PORT}:443
+      - ${WEB_PORT_HTTP}:80
     volumes:
       - ${PROJECT_PATH}:/work
       - ./logs:/var/log/nginx
