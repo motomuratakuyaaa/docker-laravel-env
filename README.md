@@ -23,10 +23,11 @@
 1. https://localhost:8000 でLaravel初期画面が表示されればOK
 1. project配下の所有者を変更（ファイル変更権限がない場合）
     - コンテナに入っている場合は、exitで抜け、wsl上に戻る。
+    - git cloneした直下のファイル群の所有者を確認しておく（ls -lh）
     - cd project/myapp
     - sudo chown -R hoge:hoge .
-        - ※wslのユーザーでOK
-        - グループの確認コマンド「groups hoge」
+        - ※wslのユーザーでOK（確認したユーザー:グループ）
+        - （グループの確認コマンド「groups hoge」）
 1. app/storage 配下の権限変更
     - chmod -R 777 app/storage
 
