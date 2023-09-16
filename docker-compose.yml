@@ -48,12 +48,13 @@ services:
       # fixme: project名によって変更
       - docker-laravel-env-db-store:/var/lib/mysql
       - ./logs:/var/log/mysql
-      - ./docker/mysql/my.conf:/etc/mysql/conf.d/my.cnf
+      - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       - MYSQL_DATABASE=${DB_NAME}
       - MYSQL_PASSWORD=${DB_PASS}
       - MYSQL_ROOT_PASSWORD=${DB_PASS}
       - TZ=${TZ}
+      - MYSQL_ROOT_HOST=%
     ports:
       - ${DB_PORT}:3306
     user: 1000:1000

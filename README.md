@@ -39,3 +39,39 @@
 1. npm install
 1. npm run build
 1. Log in, Sign upリンクを押して、画面が表示されればOK
+
+# サーバー設置手順
+1. SSL関連ファイル生成
+    - http://friendspring.starfree.jp/https/
+        - httpでアクセスしたい場合は、nginx/certs/配下に空ファイルを作成
+1. Docker環境ファイルを作成
+    - .env.dev -> .env
+    - WEB_PORTを443に変更
+        - httpでアクセスしたい場合は80に変更
+    - DB_PASSを適宜変更
+1. Docker起動
+    - docker-compose up -d --build
+1. コンテナに入る
+    - docker-compose exec app bash
+1. cd /work/myapp
+1. Laravel環境ファイルを作成
+    - .env.example -> .env
+    - LOG_CHANNEL=daily
+    - APP_NAME=アクセスログ解析
+    - APP_ENV=prod
+1. composer install
+1. php artisan key:generate
+1. npm install
+1. npm run build
+1. php artisan migrate
+1. (php artisan db:seed)
+1. (php artisan storage:link)
+1. sudo chmod 777 -Rf storage
+    - もっと早い段階の方が良いかも
+1. logrotate.confのパス調整と配置
+
+
+# リリース時注意事項
+
+・jsファイルを修正した場合、呼出箇所の日時パラメータを更新してキャッシュクリアを強制する
+
