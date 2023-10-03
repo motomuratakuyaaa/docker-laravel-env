@@ -1,7 +1,7 @@
 # プロジェクト名
 
 - Docker + PHP + Laravel + Ngix + MySQL 環境
-- 例）Google Mapの口コミ投稿を促すSMS送信ツール
+- 例）〇〇ツール
 
 # 初期起動手順
 
@@ -59,6 +59,7 @@
     - LOG_CHANNEL=daily
     - APP_NAME=アクセスログ解析
     - APP_ENV=prod
+    - const/logging.phpのdailyのpermissionを確認（0644）
 1. composer install
 1. php artisan key:generate
 1. npm install
