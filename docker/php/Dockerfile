@@ -35,12 +35,18 @@ RUN set -eux && \
   cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
   echo ${TZ} > /etc/timezone && \
   #Laravel関連のインストール
-  pecl install xdebug && \
   docker-php-ext-install intl pdo_mysql mbstring zip bcmath && \
-  docker-php-ext-enable xdebug && \
   mkdir $PSYSH_DIR && wget $PHP_MANUAL_URL -P $PSYSH_DIR && \
   curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
   composer config -g repos.packagist composer https://packagist.jp
+
+# xdebug
+ARG INSTALL_XDEBUG=false
+
+RUN if [ ${INSTALL_XDEBUG} = true ]; then \
+    pecl install xdebug && \
+    docker-php-ext-enable xdebug \
+;fi
 
 #supervisor用設定ファイル設置
 COPY supervisord.conf /etc/supervisord.conf

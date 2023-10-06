@@ -5,6 +5,7 @@ services:
       context: ./docker/php
       args:
         - TZ=${TZ}
+        - INSTALL_XDEBUG=${WORKSPACE_INSTALL_XDEBUG}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     ports:
